@@ -27,7 +27,7 @@ public class SalesDAO {
     /**
      * Get the details required to book and add to the sales table
      */
-    public void book(CardType card_type, String card_number_, int cart_id, UserDetails user) {
+    public void book(CardType cardType, String cardNumber, int cartId, UserDetails user) {
         Sales sales = null;
         Session session = null;
         Transaction transaction = null;
@@ -41,10 +41,10 @@ public class SalesDAO {
             //save sales, so that it gets added to the table
             sales = new Sales();
             sales.setBookingDate(new Date());
-            sales.setCardType(card_type);
+            sales.setCardType(cardType);
             String successID = generateSuccessID(user);
             sales.setSuccessID(successID);
-            sales.setTotalAmount(cart_id);
+            sales.setTotalAmount(cartId);
             session.save(sales);
 
             transaction.commit();
@@ -57,8 +57,7 @@ public class SalesDAO {
     }
 
     /**
-     * Generates a simple successID, include the userid and current timestamp -
-     * This should be unique
+     * Generates a simple unique successID, include the userid and current timestamp
      *
      * @return
      */
@@ -87,5 +86,9 @@ public class SalesDAO {
         } finally {
             session.close();
         }
+    }
+
+    public static void main(String[] args) {
+        
     }
 }

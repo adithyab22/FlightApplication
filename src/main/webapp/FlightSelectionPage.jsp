@@ -15,16 +15,13 @@
     <body>
         <h1>Hello! Welcome to Flight Selection Page</h1>
         
-        <form action="rest/books/add" method="post">
-            <label>Select flight</label>
-             <select id = "myList">
-               <option name="flight1" value = "1">flight1</option>
-               <option value = "2">flight2</option>
-               <option value = "3">flight3</option>
-               <option value = "4">flight4</option>
-             </select>
-            <p>price : <input type="number" step="any" name="price" /></p>
-            <input type="submit" value="Add User" />
+       <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
+            <p>Flight ID: <input type="text" name="flight_id" /></p>
+            <p>Airline Price : <input type="number" name="airline_price" step="any" /></p>
+            <p>Flight Price : <input type="number" name="flight_price" step="any" /></p>
+           
+            <input type="submit" value="Add Flight" />
         </form>
+        
     </body>
 </html>

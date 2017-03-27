@@ -5,19 +5,26 @@
  */
 package com.bookflight.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Adithya
  */
 @Entity
+@Table (name = "FLIGHT_DETAILS")
 public class Flight {
     @Id
+    @Column (name = "FLIGHT_NUMBER")
     private int flightNumber;
+    @Column (name = "FLIGHT_NAME")
     private String flightName;
+    @Column (name = "AIRLINE_NAME")
     private String airlineName;
+    @Column (name = "FLIGHT_PRICE")
     private double cost;
     
     public double getCost() {

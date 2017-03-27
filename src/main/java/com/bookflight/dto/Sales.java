@@ -6,6 +6,7 @@
 package com.bookflight.dto;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,13 +21,17 @@ import javax.persistence.OneToOne;
 @Entity
 public class Sales {
     @Id @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column (name = "SUCCESS_ID")
     private String successID;
     //foreign key
     @OneToOne
     @JoinColumn(name="CARD_TYPE_ID")
     private CardType cardType;
+    @Column (name = "CARD_NUMBER")
     private String cardNumber;
+    @Column (name = "TOTAL_AMOUNT")
     private double totalAmount;
+    @Column (name = "BOOKING_DATE")
     private Date bookingDate;
     //foreign key
     @OneToOne

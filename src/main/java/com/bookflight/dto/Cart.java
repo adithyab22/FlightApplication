@@ -18,6 +18,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.CollectionId;
@@ -29,9 +30,11 @@ import org.hibernate.annotations.Type;
  * @author Adithya
  */
 @Entity
+@Table (name = "CART")
 public class Cart {
 
     @Id
+    @Column(name = "CART_ID")
     private int cartID;
     @ElementCollection(fetch = FetchType.EAGER)
     @JoinTable(name = "CART_FLIGHT",
@@ -39,7 +42,10 @@ public class Cart {
     @GenericGenerator(name = "hilo-gen", strategy = "hilo")
     @CollectionId(columns = {
         @Column(name = "FLIGHT_COMPONENT_ID")}, generator = "hilo-gen", type = @Type(type = "long"))
-    private Collection<FlightComponent> setOfFlightComponents = new ArrayList<FlightComponent>();
+    private List<FlightComponent> listOfFlightComponents = new ArrayList<FlightComponent>();
+
+    @Column(name = "TOTAL_CART_PRICE")
+    private double totalCartPrice;
 
     public int getCartID() {
         return cartID;
@@ -49,12 +55,20 @@ public class Cart {
         this.cartID = cartID;
     }
 
-    public Collection<FlightComponent> getSetOfFlightComponents() {
-        return setOfFlightComponents;
+    public List<FlightComponent> getListOfFlightComponents() {
+        return listOfFlightComponents;
     }
 
-    public void setSetOfFlightComponents(ArrayList<FlightComponent> setOfFlightComponents) {
-        this.setOfFlightComponents = setOfFlightComponents;
+    public void setListOfFlightComponents(List<FlightComponent> listOfFlightComponents) {
+        this.listOfFlightComponents = listOfFlightComponents;
+    }
+
+    public double getTotalCartPrice() {
+        return totalCartPrice;
+    }
+
+    public void setTotalCartPrice(double totalCartPrice) {
+        this.totalCartPrice = totalCartPrice;
     }
 
 }

@@ -17,20 +17,24 @@ import javax.persistence.TemporalType;
  * @author Adithya
  */
 @Embeddable
-public class FlightComponent {
-    @Id
+public class FlightComponent implements Cloneable{
     private int flightComponentID;
     @Column(name="FLIGHT_ID")
     private int flightID;
     @Temporal (TemporalType.DATE)
     @Column(name="FLIGHT_DATE")
     private Date flightDate;
-    //foreign key
+    @Column(name="FLIGHT_PRICE")
     private double flightPrice;
+    @Column(name="AIRLINE_CARD_PRICE")
     private double airlineCardPrice;
+    @Column(name="COMPUTED_PRICE")
     private double computedPrice;
+    @Column(name="IS_REMOVED")
     private int isRemoved;
+    @Column(name="CREATED_DATETIME")
     private Date createdDateTime;
+     @Column(name="REMOVED_DATETIME")
     private Date removedDateTime;
    
     public int getFlightComponentID() {
@@ -102,5 +106,10 @@ public class FlightComponent {
 
     public void setRemovedDateTime(Date removedDateTime) {
         this.removedDateTime = removedDateTime;
+    }
+    
+    public Object clone() throws CloneNotSupportedException
+    {
+        return super.clone();
     }
 }
