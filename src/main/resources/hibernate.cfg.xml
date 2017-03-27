@@ -12,11 +12,11 @@
  
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
  
-        <property name="connection.url">jdbc:mysql://flightbookingdb.c0o6lxnne6ah.us-east-1.rds.amazonaws.com/flight</property>
+        <property name="connection.url"></property>
  
-        <property name="connection.username">flight</property>
+        <property name="connection.username"></property>
  
-        <property name="connection.password">flightbooking</property>
+        <property name="connection.password"></property>
  
         <!-- Connection Pool Size (built-in) -->
  
