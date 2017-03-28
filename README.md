@@ -1,4 +1,6 @@
 # FlightApplication
+
+Application URL: Sample-env.bk24gu5qw7.us-east-1.elasticbeanstalk.com <br>
 Application that helps users book flights.
 
 DB details:
