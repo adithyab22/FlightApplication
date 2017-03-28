@@ -15,13 +15,14 @@
     <body>
         <h1>Hello! Welcome to Flight Selection Page</h1>
         
-       <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
+       <form action="${pageContext.request.contextPath}/FlightSelectionServlet" method="post">
             <p>Flight ID: <input type="text" name="flight_id" /></p>
             <p>Airline Price : <input type="number" name="airline_price" step="any" /></p>
             <p>Flight Price : <input type="number" name="flight_price" step="any" /></p>
-           
+            
             <input type="submit" value="Add Flight" />
         </form>
-        
+            Cart details:<br>
+            <%=request.getAttribute("flightComponent") == null ? "" : request.getAttribute("flightComponent") %>
     </body>
 </html>

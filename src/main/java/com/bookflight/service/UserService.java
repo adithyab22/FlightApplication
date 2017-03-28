@@ -12,7 +12,6 @@ package com.bookflight.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -24,6 +23,8 @@ import javax.ws.rs.core.Response;
 import org.apache.log4j.Logger;
 import com.bookflight.dto.FlightComponent;
 import java.util.Date;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.QueryParam;
 
 @Path("/flight")
 /**
@@ -36,9 +37,9 @@ static List<FlightComponent> flightsList = new ArrayList<FlightComponent>();
   @POST
   @Path("/add")
   @Produces(MediaType.TEXT_HTML)
-  public Response addFlightComponent(@FormParam("flight_id") int flightID, 
-                @FormParam("airline_price") int airline_price,
-                @FormParam("flight_price") double flight_price) {
+  public Response addFlightComponent(@QueryParam("flight_id") int flightID, 
+                @QueryParam("airline_price") int airline_price,
+                @QueryParam("flight_price") double flight_price) {
     FlightComponent flightComponent = new FlightComponent();
     flightComponent.setAirlineCardPrice(airline_price);
     double total_price = airline_price + flight_price;
@@ -49,10 +50,19 @@ static List<FlightComponent> flightsList = new ArrayList<FlightComponent>();
     
     
     flightsList.add(flightComponent);
-    String msg = "add flight component: " + flightsList.toString();
+    String msg = "add flight component: with price:"+ total_price;
     logger.info(msg);
     return Response.ok(msg).entity(msg).build();
   }
+  
+    @POST
+    @Path("/addFlightComponent")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response consumeJSON( FlightComponent flightComponent ) {
+        String output = flightComponent.toString();
+        return Response.status(200).entity(output).build();
+    }
+
 
   @POST
   @Path("/cart")
