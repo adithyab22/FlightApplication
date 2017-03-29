@@ -38,12 +38,12 @@ DB details:
   </tr>
 <tr>
     <td>CART</td>
-    <td>CART_TRIP_ID <br> CART_ID <br> FLIGHT_COMPONENT_ID </td> 
+    <td>CART_TRIP_ID <br> CART_ID (Primary key) <br> FLIGHT_COMPONENT_ID </td> 
     <td>Table that stores CART details of users </td>
   </tr>
 <tr>
     <td>SALES</td>
-    <td>SUCCESS_ID <br>
+    <td>SUCCESS_ID (Primary Key)<br>
 CARD_TYPE_ID <br>
 FLIGHT_ID <br>
 FLIGHT_DATE <br>
