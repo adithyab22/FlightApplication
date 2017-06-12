@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/adithyab22/FlightApplication.svg?branch=master)](https://travis-ci.org/adithyab22/FlightApplication)
+
 # FlightApplication
 
 Application URL: Sample-env.bk24gu5qw7.us-east-1.elasticbeanstalk.com (Work in Progress)<br> 
